@@ -3,6 +3,7 @@ class Coursework5{
 	public static void main(String args[]){
 		Scanner input = new Scanner(System.in);
 		String GoToHomepage = null;
+		String inputAgain = null;
 		
 		while(true){
 			
@@ -43,7 +44,9 @@ class Coursework5{
 					int option = input.nextInt();
 				
 					
-						if (option == 1){
+					if (option == 1){
+						
+						while (true){
 							
 							System.out.println("\n+-----------------------------------------------------------------+");
 							System.out.println("|                       Decimal Converter                         |");
@@ -63,13 +66,33 @@ class Coursework5{
 										System.out.print(bits.charAt(i));
 									}
 								}else {
-									System.out.println("Please enter positive numbers");
+									System.out.println("\nPlease enter positive numbers\n");
+									while (true){
+										System.out.print("Do you want to input number again (Y/N) -> ");
+										inputAgain = input.next();
+										inputAgain = inputAgain.toLowerCase();
+										if (inputAgain.equals("y")){
+											break;
+										}else if (inputAgain.equals("n")){
+											break;
+										}else {
+											System.out.println("Please input 'Y' or 'N'");
+										}
+									}
+									if (inputAgain.equals("n") || (inputAgain.equals("y"))){
+										break;
+									}
+									
 								}
 							}catch (Exception e){
 								System.out.println("Invalid input");
 							}
 							
 							while (true){
+								/*if (inputAgain.equals("y")){
+									break;
+								}*/
+								
 								System.out.print("\n\nDo you want to go to homepage (Y/N) -> ");
 								GoToHomepage = input.next();
 								GoToHomepage = GoToHomepage.toLowerCase();
@@ -85,6 +108,10 @@ class Coursework5{
 							if (GoToHomepage.equals("y")){
 								break;
 							}
+						}
+						if (GoToHomepage.equals("y")){
+							break;
+						}
 							
 						}else if (option == 2){
 						}else if (option == 3){
